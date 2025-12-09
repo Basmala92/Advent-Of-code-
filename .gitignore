@@ -1,3 +1,7 @@
+# CMake build artifacts
+cmake-build-debug/
+
+# IDE settings
+.idea/
+
 CMakeLists.txt
-.idea
-cmake-build-debug
