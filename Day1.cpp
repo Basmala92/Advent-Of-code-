@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
 #define int long long
 #define allr(x) (x).rbegin(), (x).rend()
 #define all(x) (x).begin(), (x).end()
@@ -37,7 +35,7 @@ void Part1() {
         }
     }
     // ? at the condition to break the loop add it to input
-    cout << cnt << endl;
+    cout << cnt << "\n";
 }
 
 void Part2() {
@@ -72,7 +70,7 @@ void Part2() {
         }
     }
 
-    cout << cnt << endl;
+    cout << cnt << "\n";
 }
 
 
