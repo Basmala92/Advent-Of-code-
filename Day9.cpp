@@ -19,7 +19,6 @@ void Part1() {
         v.push_back(make_pair(num1, num2));
     }
 
-    sort(v.begin(), v.end());
 
     int mx = 0;
     for (int i = 0; i < v.size(); i++) {
@@ -44,11 +43,11 @@ void Part1() {
     sort(Y.begin(), Y.end());
     Y.erase(unique(all(Y)), Y.end());
     int n = X.size(), m = Y.size();
-    vector<vector<bool> > w(n, vector<bool>(m, false));
-    vector<vector<bool> > valid(n, vector<bool>(m, false));
+    vector<vector<bool> > w(n + 1, vector<bool>(m + 1, false));
+    vector<vector<bool> > valid(n + 1, vector<bool>(m + 1, false));
     for (int i = 0; i < v.size(); i++) {
         auto p1 = v[i];
-        auto p2 = v[(i + 1) % (int) v.size()];
+        auto p2 = v[(i + 1) % v.size()];
         int x1 = lower_bound(all(X), p1.first) - X.begin();
         int x2 = lower_bound(all(X), p2.first) - X.begin();
         int y1 = lower_bound(all(Y), p1.second) - Y.begin();
@@ -57,10 +56,10 @@ void Part1() {
             for (int y = min(y1, y2); y < max(y1, y2); ++y) w[x1][y] = true;
         }
         for (int x = min(x1, x2); x <= max(x1, x2); ++x) {
-            for (int y = min(y1, y2); y <= max(y1, y2); ++y) valid[x][y] = true;
+            for (int y = min(y1, y2); y <= max(y1, y2); ++y)valid[x][y] = true;
         }
     }
-    vector<vector<int> > preSum(n + 1, vector<int>(m + 1, 0));
+    vector<vector<long long> > preSum(n + 1, vector<long long>(m + 1, 0));
     for (int j = 0; j < m - 1; j++) {
         bool in = false;
         for (int i = 0; i < n - 1; i++) {
@@ -98,14 +97,12 @@ void Part1() {
 
             int area2 = preSum[lo2][lo4] - preSum[lo1][lo4] - preSum[lo2][lo3] + preSum[lo1][lo3];
             if (area1 == area2) {
-                ans = max(ans, area1);
+                ans = max(ans, area2);
             }
         }
     }
     cout << ans << "\n";
 }
-
-
 
 
 int32_t main() {
@@ -120,6 +117,5 @@ int32_t main() {
     //  cin >> tests;
     while (tests--) {
         Part1();
-
     }
 }
