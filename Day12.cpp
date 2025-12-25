@@ -8,7 +8,7 @@
 using namespace std;
 
 
-void Part1() {
+void Final() {
     string s;
 
     vector<int> cnt(10, 0);
@@ -67,10 +67,6 @@ void Part1() {
 }
 
 
-void Part2() {
-}
-
-
 int32_t main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
@@ -82,7 +78,6 @@ int32_t main() {
     int tests = 1;
     //  cin >> tests;
     while (tests--) {
-        Part1();
-        //Part2();
+        Final();
     }
 }
